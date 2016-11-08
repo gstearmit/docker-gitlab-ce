@@ -28,7 +28,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E1DD270288B4E60
  && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 8B3981E7A6852F782CC4951600A6F0A3C300EE8C \
  && echo "deb http://ppa.launchpad.net/nginx/stable/ubuntu xenial main" >> /etc/apt/sources.list \
  && apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y supervisor logrotate locales wget curl \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y sudo supervisor logrotate locales wget curl \
       nginx openssh-server mysql-client postgresql-client redis-tools \
       git-core ruby${RUBY_VERSION} python2.7 python-docutils nodejs gettext-base \
       libmysqlclient20 libpq5 zlib1g libyaml-0-2 libssl1.0.0 \
