@@ -1,6 +1,12 @@
-[![Docker Repository on Quay.io](https://quay.io/repository/sameersbn/gitlab/status "Docker Repository on Quay.io")](https://quay.io/repository/sameersbn/gitlab)
-[![](https://images.microbadger.com/badges/image/sameersbn/gitlab.svg)](http://microbadger.com/images/sameersbn/gitlab "Get your own image badge on microbadger.com")
-# sameersbn/gitlab:8.13.3
+[![Build Status](https://travis-ci.org/nguoianphu/docker-gitlab-ce.svg?branch=master)](https://travis-ci.org/nguoianphu/docker-gitlab-ce)
+[![](https://images.microbadger.com/badges/image/guoianphu/docker-gitlab-ce.svg)](http://microbadger.com/images/guoianphu/docker-gitlab-ce "Get your own image badge on microbadger.com")
+
+# Docker GitLab CE
+
+## nguoianphu/docker-gitlab-ce
+
+
+----
 
 - [Introduction](#introduction)
     - [Changelog](Changelog.md)
