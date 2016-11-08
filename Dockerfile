@@ -1,11 +1,12 @@
-FROM sameersbn/ubuntu:14.04.20161014
-MAINTAINER sameer@damagehead.com
+FROM ubuntu
 
-ENV GITLAB_VERSION=8.13.3 \
-    RUBY_VERSION=2.3 \
-    GOLANG_VERSION=1.5.3 \
-    GITLAB_SHELL_VERSION=3.6.6 \
-    GITLAB_WORKHORSE_VERSION=0.8.5 \
+MAINTAINER Tuan Vo <vohungtuan@gmail.com>
+
+ENV GITLAB_VERSION=8.13.4 \
+    RUBY_VERSION=2.3.1 \
+    GOLANG_VERSION=1.7.3 \
+    GITLAB_SHELL_VERSION=4.0.0 \
+    GITLAB_WORKHORSE_VERSION=1.0.0 \
     GITLAB_USER="git" \
     GITLAB_HOME="/home/git" \
     GITLAB_LOG_DIR="/var/log/gitlab" \
