@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 MAINTAINER Tuan Vo <vohungtuan@gmail.com>
 
 ENV GITLAB_VERSION=8.13.4 \
-    RUBY_VERSION=2.3.1 \
+    RUBY_VERSION=2.3 \
     GOLANG_VERSION=1.7.3 \
     GITLAB_SHELL_VERSION=4.0.0 \
     GITLAB_WORKHORSE_VERSION=1.0.0 \
@@ -31,7 +31,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E1DD270288B4E60
  && DEBIAN_FRONTEND=noninteractive apt-get install -y supervisor logrotate locales wget curl \
       nginx openssh-server mysql-client postgresql-client redis-tools \
       git-core ruby${RUBY_VERSION} python2.7 python-docutils nodejs gettext-base \
-      libmysqlclient18 libpq5 zlib1g libyaml-0-2 libssl1.0.0 \
+      libmysqlclient20 libpq5 zlib1g libyaml-0-2 libssl1.0.0 \
       libgdbm3 libreadline6 libncurses5 libffi6 \
       libxml2 libxslt1.1 libcurl3 libicu52 \
  && update-locale LANG=C.UTF-8 LC_MESSAGES=POSIX \
