@@ -11,12 +11,10 @@ script:
   - sleep 30
   - docker ps -a  
   - docker logs my-gitlab
-  - docker exec -it my-gitlab ps -ef
+  # - docker exec -it my-gitlab ps -ef
   - echo "Checking gitlab"
-  - docker exec -it my-gitlab netstat -anlp
+  # - docker exec -it my-gitlab netstat -anlp
   - docker stop my-gitlab
-  -  docker-compose up -d
-  -  docker-compose logs
   - curl http://localhost:10080/
   - echo "Testing public image on Docker Hub"
   - docker run -d -p 9090:80  --name nguoianphu-gitlab nguoianphu/docker-gitlab-ce
@@ -24,7 +22,9 @@ script:
   - docker images  
   - sleep 30  
   - docker logs nguoianphu-gitlab
-  - docker exec -it nguoianphu-gitlab ps -ef
+  # - docker exec -it nguoianphu-gitlab ps -ef
   - echo "Checking gitlab"
   - curl http://localhost:9090
-  - docker stop nguoianphu-gitlab  
+  - docker stop nguoianphu-gitlab
+  -  docker-compose up -d
+  -  docker-compose logs  
