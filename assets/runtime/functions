@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -xe
 source ${GITLAB_RUNTIME_DIR}/env-defaults
 
 SYSCONF_TEMPLATES_DIR="${GITLAB_RUNTIME_DIR}/config"
@@ -997,17 +997,17 @@ initialize_datadir() {
   chmod 755 ${GITLAB_DATA_DIR}
   chown ${GITLAB_USER}: ${GITLAB_DATA_DIR}
 
-  # create the ssh directory for server keys
+  echo "create the ssh directory for server keys"
   mkdir -p ${GITLAB_DATA_DIR}/ssh
   chown -R root: ${GITLAB_DATA_DIR}/ssh
 
-  # create the repositories directory and make sure it has the right permissions
+  echo "create the repositories directory and make sure it has the right permissions"
   mkdir -p ${GITLAB_REPOS_DIR}
   chown ${GITLAB_USER}: ${GITLAB_REPOS_DIR}
   chmod ug+rwX,o-rwx ${GITLAB_REPOS_DIR}
   exec_as_git chmod g+s ${GITLAB_REPOS_DIR}
 
-  # create build traces directory
+  echo "create build traces directory"
   mkdir -p ${GITLAB_BUILDS_DIR}
   chmod u+rwX ${GITLAB_BUILDS_DIR}
   chown ${GITLAB_USER}: ${GITLAB_BUILDS_DIR}
@@ -1017,7 +1017,7 @@ initialize_datadir() {
   rm -rf ${GITLAB_INSTALL_DIR}/builds
   ln -sf ${GITLAB_BUILDS_DIR} ${GITLAB_INSTALL_DIR}/builds
 
-  # create downloads directory
+  echo "create downloads directory"
   mkdir -p ${GITLAB_DOWNLOADS_DIR}
   chmod u+rwX ${GITLAB_DOWNLOADS_DIR}
   chown ${GITLAB_USER}: ${GITLAB_DOWNLOADS_DIR}
@@ -1057,7 +1057,7 @@ initialize_datadir() {
   chmod 0700 ${GITLAB_DATA_DIR}/uploads
   chown ${GITLAB_USER}: ${GITLAB_DATA_DIR}/uploads
 
-  # create the .ssh directory
+  echo "create the .ssh directory"
   mkdir -p ${GITLAB_DATA_DIR}/.ssh
   touch ${GITLAB_DATA_DIR}/.ssh/authorized_keys
   chmod 700 ${GITLAB_DATA_DIR}/.ssh

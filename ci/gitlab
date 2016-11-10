@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -xe
 
 VERSION=$(cat VERSION)
 DOCKER_REGISTRY_HOST=${DOCKER_REGISTRY_HOST:-hub.docker.com}
