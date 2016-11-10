@@ -2,6 +2,7 @@ version: '2'
 
 services:
   redis:
+    # restart: always
     image: redis
     command:
     - --loglevel warning
@@ -21,9 +22,17 @@ services:
     - DB_NAME=gitlabhq_production
     - POSTGRES_DB=gitlabhq_production
     - DB_EXTENSION=pg_trgm
-
+    
   gitlab:
-    image: gitlab
+    # restart: always
+    image: nguoianphu/docker-gitlab-ce
+    privileged: true
+    cap_add:
+    - SYS_ADMIN
+    - MKNOD    
+    - DAC_READ_SEARCH
+    devices:
+    - /dev/fuse
     depends_on:
     - redis
     - postgresql
@@ -31,7 +40,8 @@ services:
     - "10080:80"
     - "10022:22"
     volumes:
-    - ./gitlab:/home/git/data:Z
+    # - ./gitlab:/home/git/data:Z
+    - ./gitlab/log:/var/log/gitlab:Z
     environment:
     - DEBUG=false
 
