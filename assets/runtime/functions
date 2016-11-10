@@ -1,5 +1,5 @@
 #!/bin/bash
-set -xe
+set -e
 source ${GITLAB_RUNTIME_DIR}/env-defaults
 
 SYSCONF_TEMPLATES_DIR="${GITLAB_RUNTIME_DIR}/config"

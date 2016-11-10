@@ -1,5 +1,5 @@
 #!/bin/bash
-set -xe
+set -e
 
 # GITLAB_CLONE_URL=https://github.com/gitlabhq/gitlabhq.git
 GITLAB_CLONE_URL=https://gitlab.com/gitlab-org/gitlab-ce.git
