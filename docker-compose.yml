@@ -1,19 +1,28 @@
 version: '2'
 
 services:
+
+  myData:
+    image: busybox
+    volumes:
+    - ./postgresql1:/var/lib/postgresql
+    - ./redis:/var/lib/redis
+    - ./gitlab:/home/git/data
+    - ./var/log/gitlab:/var/log/gitlab    
+
   redis:
     # restart: always
     image: redis
     command:
     - --loglevel warning
-    volumes:
-    - ./redis:/var/lib/redis:Z
+    volumes_from:
+    - myData
 
   postgresql:
     # restart: always
     image: postgres
-    volumes:
-    - ./postgresql1:/var/lib/postgresql:Z
+    volumes_from:
+    - myData
     environment:
     - DB_USER=gitlab
     - POSTGRES_USER=gitlab
@@ -26,22 +35,14 @@ services:
   gitlab:
     # restart: always
     image: nguoianphu/docker-gitlab-ce
-    privileged: true
-    cap_add:
-    - SYS_ADMIN
-    - MKNOD    
-    - DAC_READ_SEARCH
-    devices:
-    - /dev/fuse
     depends_on:
     - redis
     - postgresql
     ports:
     - "10080:80"
     - "10022:22"
-    volumes:
-    # - ./gitlab:/home/git/data:Z
-    - ./gitlab/log:/var/log/gitlab:Z
+    volumes_from:
+    - myData
     environment:
     - DEBUG=false
 
