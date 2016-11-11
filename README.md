@@ -5,7 +5,41 @@
 
 ## nguoianphu/docker-gitlab-ce
 
+### GitLab CE 8.13.5
 
+
+### Build
+
+        docker build -t gitlab .
+        
+### Run
+        cd nguoianphu/docker-gitlab-ce/
+        docker-compose -d up
+        
+
+### Use
+
+        http://DOCKER_CONTAINER_IP:10080
+        
+        # Change pass word
+        # Log in with root and your new password
+   
+### Error on Windows and Boot2Docker
+
+- Failed to create repository via gitlab-shell
+
+The file share is a CIFS share, which does not support symlinks, and gitlab apparently uses symlinks in creating new projects. 
+
+https://gitlab.com/gitlab-org/gitlab-ce/issues/13734#note_17967573
+
+#### Workaround
+
+Open docker-compose.yml and comment out the gitlab mount volume
+
+        volumes:
+        # - ./gitlab:/home/git/data
+   
+----
 ----
 
 - [Introduction](#introduction)

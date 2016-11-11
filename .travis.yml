@@ -6,7 +6,7 @@ script:
   - echo "Build local image"
   - docker build -t gitlab .
   - docker images
-  - docker run --name my-gitlab -d -p 9090:80 gitlab
+  - docker run --name my-gitlab -d -p 10080:80 gitlab
   - echo "Wait gitlab to start up"    
   - docker ps -a  
   - docker logs my-gitlab
@@ -15,7 +15,7 @@ script:
   # - docker exec -it my-gitlab netstat -anlp
   - docker stop my-gitlab
   - echo "Testing public image on Docker Hub"
-  - docker run -d -p 9090:80  --name nguoianphu-gitlab nguoianphu/docker-gitlab-ce
+  - docker run -d -p 10080:80  --name nguoianphu-gitlab nguoianphu/docker-gitlab-ce
   - docker ps -a
   - docker images
   - docker logs nguoianphu-gitlab
@@ -24,4 +24,4 @@ script:
   - docker stop nguoianphu-gitlab
   - docker-compose up -d
   - docker-compose logs
-  - curl http://localhost:9090  
+  - curl http://localhost:10080  
