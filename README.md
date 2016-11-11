@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/nguoianphu/docker-gitlab-ce.svg?branch=master)](https://travis-ci.org/nguoianphu/docker-gitlab-ce)
-[![](https://images.microbadger.com/badges/image/guoianphu/docker-gitlab-ce.svg)](http://microbadger.com/images/guoianphu/docker-gitlab-ce "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/nguoianphu/docker-gitlab-ce.svg)](http://microbadger.com/images/nguoianphu/docker-gitlab-ce "Get your own image badge on microbadger.com")
 
 # Docker GitLab CE
 
