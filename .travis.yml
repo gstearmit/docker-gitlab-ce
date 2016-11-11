@@ -24,4 +24,5 @@ script:
   - docker stop nguoianphu-gitlab
   - docker-compose up -d
   - docker-compose logs
+  - sleep 60
   - curl http://localhost:10080  
