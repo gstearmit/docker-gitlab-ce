@@ -449,7 +449,6 @@ production: &base
     # NOTE: REPOS PATHS MUST NOT CONTAIN ANY SYMLINK!!!
     storages: # You must have at least a `default` storage path.
       default: {{GITLAB_REPOS_DIR}}/
-      aufs: /mnt/sda1/var/lib/docker/aufs
 
   ## Backup settings
   backup:
